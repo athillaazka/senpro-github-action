@@ -32,7 +32,7 @@ jobs :
           - name: Build app on VM
             uses : appleboy/ssh-action@master
             with : 
-                host: ${{ secrets.HOST }}
+                host: ${{ secrets.HOST }} 
                 username: ${{ secrets.USERNAME }}
                 password: ${{ secrets.PASSWORD }}
                 port: ${{ secrets.PORT }}
@@ -40,9 +40,9 @@ jobs :
                   eval "$(ssh-agent -s)"
                   ssh-add ~/.ssh/vm_senpro_modul2_51
                   echo "Cek folder project";
-                  [ ! -d "${HOME}/senpro/474647/modul02/senpro-github-action/" &&
+                  [ ! -d "${HOME}/senpro/474647/modul02/senpro-github-action/" ] &&
                   {
-                    echo " Repository belum di-clone. Cloning...";
+                    echo "Repository belum di-clone. Cloning...";
                     mkdir -p ~/senpro/474647/modul02;
                     cd ~/senpro/474647/modul02;
                     git clone git@github.com:athillaazka/senpro-github-action.git;
